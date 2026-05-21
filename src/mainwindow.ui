@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Система моніторингу подій ПК</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_main">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <widget class="QWidget" name="tabGeneral">
+       <attribute name="title">
+        <string>Загальний моніторинг</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_general">
+        <item>
+         <widget class="QWidget" name="chartWidget">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>300</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="logTable">
+          <property name="columnCount">
+           <number>3</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="refreshBtn">
+          <property name="text">
+           <string>Оновити дані</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabInput">
+       <attribute name="title">
+        <string>Активність введення</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_input">
+        <item>
+         <widget class="QTableWidget" name="keylogTable">
+          <property name="columnCount">
+           <number>2</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabClipboard">
+       <attribute name="title">
+        <string>Буфер обміну</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_clipboard">
+        <item>
+         <widget class="QTableWidget" name="clipboardTable">
+          <property name="columnCount">
+           <number>2</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabUsb">
+       <attribute name="title">
+        <string>USB Моніторинг</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_usb">
+        <item>
+         <widget class="QTableWidget" name="usbTable">
+          <property name="columnCount">
+           <number>2</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+</ui>
