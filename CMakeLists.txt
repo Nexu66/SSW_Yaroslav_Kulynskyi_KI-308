@@ -5,12 +5,11 @@ project(KursachSPZ VERSION 0.1)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Find Qt 6
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets Sql Charts)
 qt_standard_project_setup()
 
-# Windows API Libraries
-set(WIN_LIBS user32 gdi32 shell32)
+# Windows API Libraries — додано wtsapi32 для WTSRegisterSessionNotification
+set(WIN_LIBS user32 gdi32 shell32 wtsapi32)
 
 add_executable(KursachSPZ
     src/main.cpp
@@ -42,7 +41,6 @@ target_link_libraries(KursachSPZ PRIVATE
     ${WIN_LIBS}
 )
 
-# Explicitly add include directories for Qt6 to resolve "No such file or directory" errors
 target_include_directories(KursachSPZ PRIVATE
     include
     ${Qt6_Charts_INCLUDE_DIRS}

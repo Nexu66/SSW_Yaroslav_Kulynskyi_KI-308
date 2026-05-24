@@ -9,8 +9,6 @@ ClipboardMonitor::ClipboardMonitor(QObject *parent) : QObject(parent), m_active(
 
 void ClipboardMonitor::start() {
     m_active = true;
-    // Instead of complex Windows clipboard listeners which require a message loop in a separate thread,
-    // for the MVP we use a high-frequency timer to poll the clipboard.
     QTimer *timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &ClipboardMonitor::checkClipboard);
     timer->start(500); // Check every 500ms

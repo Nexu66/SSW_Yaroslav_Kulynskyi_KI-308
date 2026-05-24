@@ -2,6 +2,8 @@
 #define USBMONITOR_H
 
 #include <QObject>
+#include <QDateTime>
+#include <QString>
 #include <windows.h>
 
 class UsbMonitor : public QObject {
@@ -14,6 +16,11 @@ public:
 
 private:
     bool m_running = false;
+
+    // Дедублікація: запам'ятовуємо останню подію
+    QString   m_lastAction;
+    QString   m_lastDevice;
+    QDateTime m_lastTime;
 };
 
 #endif // USBMONITOR_H

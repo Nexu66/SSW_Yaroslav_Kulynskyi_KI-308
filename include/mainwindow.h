@@ -31,16 +31,19 @@ private slots:
 private:
     void startMonitoring();
 
-    bool nativeEvent(const QByteArray &event, int *returnVal) override;
+    bool nativeEvent(const QByteArray &eventType, void *message, qintptr *result) override;
 
     Ui::MainWindow *ui;
-    ActivityChart *m_activityChart;
+    ActivityChart  *m_activityChart;
 
-    AppMonitor *m_appMon;
-    InputMonitor *m_inputMon;
-    UsbMonitor *m_usbMon;
+    // Вкладка живлення — створюється програмно, не через .ui
+    QTableWidget   *m_powerTable = nullptr;
+
+    AppMonitor     *m_appMon;
+    InputMonitor   *m_inputMon;
+    UsbMonitor     *m_usbMon;
     ClipboardMonitor *m_clipMon;
-    PowerMonitor *m_powerMon;
+    PowerMonitor   *m_powerMon;
 };
 
 #endif // MAINWINDOW_H

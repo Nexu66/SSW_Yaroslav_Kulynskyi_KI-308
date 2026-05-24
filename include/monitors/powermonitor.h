@@ -1,8 +1,9 @@
-#ifndef POWEMONITOR_H
-#define POWEMONITOR_H
+#ifndef POWERMONITOR_H
+#define POWERMONITOR_H
 
 #include <QObject>
 #include <QTimer>
+#include <windows.h>
 
 class PowerMonitor : public QObject {
     Q_OBJECT
@@ -11,12 +12,15 @@ public:
     void start();
     void stop();
 
+    void processWindowsMessage(UINT msg, WPARAM wParam);
+
 private slots:
-    void checkPowerState();
+    void checkBattery();
 
 private:
     QTimer *m_timer;
-    int m_lastBatteryPercent;
+    int m_lastBatteryPercent = -1;
+    bool m_wasCharging = false;
 };
 
-#endif // POWEMONITOR_H
+#endif // POWERMONITOR_H
