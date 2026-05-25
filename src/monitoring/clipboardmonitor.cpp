@@ -1,4 +1,4 @@
-#include "monitors/clipboardmonitor.h"
+#include "clipboardmonitor.h"
 #include "databasemanager.h"
 #include <QTimer>
 #include <QClipboard>

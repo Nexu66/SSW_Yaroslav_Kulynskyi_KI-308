@@ -1,4 +1,4 @@
-#include "monitors/usbmonitor.h"
+#include "usbmonitor.h"
 #include "databasemanager.h"
 #include <windows.h>
 #include <dbt.h>

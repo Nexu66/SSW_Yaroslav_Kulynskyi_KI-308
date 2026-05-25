@@ -1,4 +1,4 @@
-#include "monitors/powermonitor.h"
+#include "powermonitor.h"
 #include "databasemanager.h"
 #include <windows.h>
 #include <QDebug>

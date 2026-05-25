@@ -1,4 +1,4 @@
-#include "monitors/inputmonitor.h"
+#include "inputmonitor.h"
 #include "databasemanager.h"
 #include <QString>
 #include <QDebug>

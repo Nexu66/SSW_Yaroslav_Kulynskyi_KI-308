@@ -7,11 +7,11 @@
 #include <QVBoxLayout>
 #include <QWidget>
 #include "activitychart.h"
-#include "monitors/appmonitor.h"
-#include "monitors/inputmonitor.h"
-#include "monitors/usbmonitor.h"
-#include "monitors/clipboardmonitor.h"
-#include "monitors/powermonitor.h"
+#include "appmonitor.h"
+#include "inputmonitor.h"
+#include "usbmonitor.h"
+#include "clipboardmonitor.h"
+#include "powermonitor.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

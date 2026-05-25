@@ -1,4 +1,4 @@
-#include "monitors/appmonitor.h"
+#include "appmonitor.h"
 #include "databasemanager.h"
 #include <windows.h>
 #include <psapi.h>
