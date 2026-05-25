@@ -1,0 +1,237 @@
+@startuml
+class "InputMonitor" as C_0010617902402347083579
+class C_0010617902402347083579 {
++InputMonitor(QObject * parent = nullptr) : void
+..
+{static} +KeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) : LRESULT
++metaObject() const : const QMetaObject *
+{static} -qt_create_metaobjectdata<typename>() constexpr : auto
++qt_metacall(QMetaObject::Call, int, void **) : int
++qt_metacast(const char *) : void *
+{static} -qt_static_metacall(QObject *, QMetaObject::Call, int, void **) : void
++start() : void
++stop() : void
+{static} +tr(const char * s, const char * c = nullptr, int n = -1) : QString
+__
+-m_hKeyboardHook : HHOOK
+{static} +staticMetaObject : const QMetaObject
+}
+class "InputMonitor::QPrivateSignal" as C_0007275032155672926075
+class C_0007275032155672926075 {
++QPrivateSignal() constexpr = default : void
+__
+}
+class "DatabaseManager" as C_0006040296495016557319
+class C_0006040296495016557319 {
+-DatabaseManager(QObject * parent = nullptr) : void
+..
++initDatabase() : bool
+{static} +instance() : DatabaseManager *
++logClipboard(const QString & text) : void
++logEvent(const QString & type, const QString & description) : void
++logKey(const QString & key) : void
++logUsb(const QString & action, const QString & deviceName) : void
++metaObject() const : const QMetaObject *
+{static} -qt_create_metaobjectdata<typename>() constexpr : auto
++qt_metacall(QMetaObject::Call, int, void **) : int
++qt_metacast(const char *) : void *
+{static} -qt_static_metacall(QObject *, QMetaObject::Call, int, void **) : void
+{static} +tr(const char * s, const char * c = nullptr, int n = -1) : QString
+__
+-m_db : QSqlDatabase
+{static} -m_instance : DatabaseManager *
+{static} +staticMetaObject : const QMetaObject
+}
+class "DatabaseManager::QPrivateSignal" as C_0008255704896056504599
+class C_0008255704896056504599 {
++QPrivateSignal() constexpr = default : void
+__
+}
+class "ProcessInfo" as C_0001767362958478954178
+class C_0001767362958478954178 {
+__
++name : QString
++startTime : QDateTime
+}
+class "QMap<DWORD,ProcessInfo>" as C_0000784021463933809475
+class C_0000784021463933809475 {
+__
+}
+class "AppMonitor" as C_0007887141664541954018
+class C_0007887141664541954018 {
++AppMonitor(QObject * parent = nullptr) : void
+..
+-checkProcesses(bool silentMode = false) : void
++metaObject() const : const QMetaObject *
+{static} -qt_create_metaobjectdata<typename>() constexpr : auto
++qt_metacall(QMetaObject::Call, int, void **) : int
++qt_metacast(const char *) : void *
+{static} -qt_static_metacall(QObject *, QMetaObject::Call, int, void **) : void
++start() : void
++stop() : void
+{static} +tr(const char * s, const char * c = nullptr, int n = -1) : QString
+__
+-m_runningProcesses : QMap<DWORD,ProcessInfo>
+-m_timer : QTimer *
+{static} +staticMetaObject : const QMetaObject
+}
+class "AppMonitor::QPrivateSignal" as C_0003698319189784720534
+class C_0003698319189784720534 {
++QPrivateSignal() constexpr = default : void
+__
+}
+class "ClipboardMonitor" as C_0006682767790515874693
+class C_0006682767790515874693 {
++ClipboardMonitor(QObject * parent = nullptr) : void
+..
+-checkClipboard() : void
++metaObject() const : const QMetaObject *
+{static} -qt_create_metaobjectdata<typename>() constexpr : auto
++qt_metacall(QMetaObject::Call, int, void **) : int
++qt_metacast(const char *) : void *
+{static} -qt_static_metacall(QObject *, QMetaObject::Call, int, void **) : void
++start() : void
++stop() : void
+{static} +tr(const char * s, const char * c = nullptr, int n = -1) : QString
+__
+-m_active : bool
+-m_lastClipboardText : QString
+{static} +staticMetaObject : const QMetaObject
+}
+class "ClipboardMonitor::QPrivateSignal" as C_0008835244076970901209
+class C_0008835244076970901209 {
++QPrivateSignal() constexpr = default : void
+__
+}
+class "UsbMonitor" as C_0005048182647798814005
+class C_0005048182647798814005 {
++UsbMonitor(QObject * parent = nullptr) : void
+..
++metaObject() const : const QMetaObject *
++processDeviceChange(WPARAM wParam, LPARAM lParam) : void
+{static} -qt_create_metaobjectdata<typename>() constexpr : auto
++qt_metacall(QMetaObject::Call, int, void **) : int
++qt_metacast(const char *) : void *
+{static} -qt_static_metacall(QObject *, QMetaObject::Call, int, void **) : void
++start() : void
++stop() : void
+{static} +tr(const char * s, const char * c = nullptr, int n = -1) : QString
+__
+-m_lastAction : QString
+-m_lastDevice : QString
+-m_lastTime : QDateTime
+-m_running : bool
+{static} +staticMetaObject : const QMetaObject
+}
+class "UsbMonitor::QPrivateSignal" as C_0012327683466965629833
+class C_0012327683466965629833 {
++QPrivateSignal() constexpr = default : void
+__
+}
+class "QMap<int,double>" as C_0002626946978745399994
+class C_0002626946978745399994 {
+__
+}
+class "ActivityChart" as C_0017327431590948374388
+class C_0017327431590948374388 {
++ActivityChart(QWidget * parent = nullptr) : void
+..
++metaObject() const : const QMetaObject *
+#paintEvent(QPaintEvent * event) : void
+{static} -qt_create_metaobjectdata<typename>() constexpr : auto
++qt_metacall(QMetaObject::Call, int, void **) : int
++qt_metacast(const char *) : void *
+{static} -qt_static_metacall(QObject *, QMetaObject::Call, int, void **) : void
++setData(const QMap<int,double> & data) : void
+{static} +tr(const char * s, const char * c = nullptr, int n = -1) : QString
+__
+-m_data : QMap<int,double>
+{static} +staticMetaObject : const QMetaObject
+}
+class "ActivityChart::QPrivateSignal" as C_0016808901077639802148
+class C_0016808901077639802148 {
++QPrivateSignal() constexpr = default : void
+__
+}
+class "PowerMonitor" as C_0003680149248695565992
+class C_0003680149248695565992 {
++PowerMonitor(QObject * parent = nullptr) : void
+..
+-checkBattery() : void
++metaObject() const : const QMetaObject *
++processWindowsMessage(UINT msg, WPARAM wParam) : void
+{static} -qt_create_metaobjectdata<typename>() constexpr : auto
++qt_metacall(QMetaObject::Call, int, void **) : int
++qt_metacast(const char *) : void *
+{static} -qt_static_metacall(QObject *, QMetaObject::Call, int, void **) : void
++start() : void
++stop() : void
+{static} +tr(const char * s, const char * c = nullptr, int n = -1) : QString
+__
+-m_lastBatteryPercent : int
+-m_timer : QTimer *
+-m_wasCharging : bool
+{static} +staticMetaObject : const QMetaObject
+}
+class "PowerMonitor::QPrivateSignal" as C_0003819925646414964152
+class C_0003819925646414964152 {
++QPrivateSignal() constexpr = default : void
+__
+}
+class "Ui::MainWindow" as C_0005461363864585996070
+class C_0005461363864585996070 {
+__
+}
+class "MainWindow" as C_0002900986228388971956
+class C_0002900986228388971956 {
++MainWindow(QWidget * parent = nullptr) : void
++~MainWindow() : void
+..
++metaObject() const : const QMetaObject *
+-nativeEvent(const QByteArray & eventType, void * message, qintptr * result) : bool
+{static} -qt_create_metaobjectdata<typename>() constexpr : auto
++qt_metacall(QMetaObject::Call, int, void **) : int
++qt_metacast(const char *) : void *
+{static} -qt_static_metacall(QObject *, QMetaObject::Call, int, void **) : void
+-refreshLogs() : void
+-startMonitoring() : void
+{static} +tr(const char * s, const char * c = nullptr, int n = -1) : QString
+-updateHeatmap() : void
+__
+-m_activityChart : ActivityChart *
+-m_appMon : AppMonitor *
+-m_clipMon : ClipboardMonitor *
+-m_inputMon : InputMonitor *
+-m_powerMon : PowerMonitor *
+-m_powerTable : QTableWidget *
+-m_usbMon : UsbMonitor *
+{static} +staticMetaObject : const QMetaObject
+-ui : Ui::MainWindow *
+}
+class "MainWindow::QPrivateSignal" as C_0013559316693802428772
+class C_0013559316693802428772 {
++QPrivateSignal() constexpr = default : void
+__
+}
+C_0007275032155672926075 --+ C_0010617902402347083579
+C_0006040296495016557319 --> C_0006040296495016557319 : -m_instance
+C_0008255704896056504599 --+ C_0006040296495016557319
+C_0000784021463933809475 ..> C_0001767362958478954178
+C_0007887141664541954018 o-- C_0000784021463933809475 : -m_runningProcesses
+C_0003698319189784720534 --+ C_0007887141664541954018
+C_0008835244076970901209 --+ C_0006682767790515874693
+C_0012327683466965629833 --+ C_0005048182647798814005
+C_0017327431590948374388 o-- C_0002626946978745399994 : -m_data
+C_0016808901077639802148 --+ C_0017327431590948374388
+C_0003819925646414964152 --+ C_0003680149248695565992
+C_0002900986228388971956 --> C_0017327431590948374388 : -m_activityChart
+C_0002900986228388971956 --> C_0007887141664541954018 : -m_appMon
+C_0002900986228388971956 --> C_0010617902402347083579 : -m_inputMon
+C_0002900986228388971956 --> C_0005048182647798814005 : -m_usbMon
+C_0002900986228388971956 --> C_0006682767790515874693 : -m_clipMon
+C_0002900986228388971956 --> C_0003680149248695565992 : -m_powerMon
+C_0013559316693802428772 --+ C_0002900986228388971956
+
+'Generated with clang-uml, version 0.6.2
+'LLVM version clang version 20.1.7 (https://github.com/llvm/llvm-project.git 6146a88f60492b520a36f8f8f3231e15f3cc6082)
+@enduml

@@ -14,23 +14,23 @@ set(WIN_LIBS user32 gdi32 shell32 wtsapi32)
 
 add_executable(KursachSPZ
     src/main.cpp
-    src/mainwindow.cpp
-    include/mainwindow.h
-    src/databasemanager.cpp
-    include/databasemanager.h
-    src/activitychart.cpp
-    include/activitychart.h
-    src/monitors/appmonitor.cpp
-    include/monitors/appmonitor.h
-    src/monitors/inputmonitor.cpp
-    include/monitors/inputmonitor.h
-    src/monitors/usbmonitor.cpp
-    include/monitors/usbmonitor.h
-    src/monitors/clipboardmonitor.cpp
-    include/monitors/clipboardmonitor.h
-    src/monitors/powermonitor.cpp
-    include/monitors/powermonitor.h
-    src/mainwindow.ui
+    src/ui/mainwindow.cpp
+    src/ui/mainwindow.h
+    src/core/databasemanager.cpp
+    src/core/databasemanager.h
+    src/ui/activitychart.cpp
+    src/ui/activitychart.h
+    src/monitoring/appmonitor.cpp
+    src/monitoring/appmonitor.h
+    src/monitoring/inputmonitor.cpp
+    src/monitoring/inputmonitor.h
+    src/monitoring/usbmonitor.cpp
+    src/monitoring/usbmonitor.h
+    src/monitoring/clipboardmonitor.cpp
+    src/monitoring/clipboardmonitor.h
+    src/monitoring/powermonitor.cpp
+    src/monitoring/powermonitor.h
+    src/ui/mainwindow.ui
 )
 
 target_link_libraries(KursachSPZ PRIVATE
@@ -43,7 +43,9 @@ target_link_libraries(KursachSPZ PRIVATE
 )
 
 target_include_directories(KursachSPZ PRIVATE
-    include
+    src/ui
+    src/core
+    src/monitoring
     ${Qt6_Charts_INCLUDE_DIRS}
     ${Qt6_Core_INCLUDE_DIRS}
     ${Qt6_Gui_INCLUDE_DIRS}

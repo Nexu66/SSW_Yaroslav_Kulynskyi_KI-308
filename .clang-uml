@@ -1,0 +1,29 @@
+compilation_database_dir: ./build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug
+
+output_directory: ./docs/diagrams
+
+diagrams:
+
+  my_project_classes:
+    type: class
+    exclude:
+      paths:
+        - build
+    plantuml: {}
+
+  main_sequence:
+    type: sequence
+    start_from:
+      - function: "main(int,char **)"
+    exclude:
+      paths:
+        - build
+    plantuml: {}
+
+  my_components:
+    type: package
+    package_type: directory
+    include:
+      paths:
+        - src
+    plantuml: {}
