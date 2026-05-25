@@ -1,4 +1,5 @@
 @startuml
+title Application startup sequence
 participant "main(int,char **)" as C_0002639366545119460636
 activate C_0002639366545119460636
 alt
@@ -33,10 +34,10 @@ activate C_0002900986228388971956
 participant "AppMonitor" as C_0007887141664541954018
 C_0002900986228388971956 -> C_0007887141664541954018 : AppMonitor(QObject *)
 activate C_0007887141664541954018
-participant "AppMonitor::AppMonitor(QObject *)::(lambda src\monitors\appmonitor.cpp:10:46)" as C_0015849414302614442372
-C_0007887141664541954018 -> C_0015849414302614442372 : operator()() const
-activate C_0015849414302614442372
-C_0015849414302614442372 -> C_0007887141664541954018 : checkProcesses(bool)
+participant "AppMonitor::AppMonitor(QObject *)::(lambda src\monitoring\appmonitor.cpp:10:46)" as C_0009320894078409994325
+C_0007887141664541954018 -> C_0009320894078409994325 : operator()() const
+activate C_0009320894078409994325
+C_0009320894078409994325 -> C_0007887141664541954018 : checkProcesses(bool)
 activate C_0007887141664541954018
 alt
 
@@ -82,7 +83,7 @@ else
 end
 end
 deactivate C_0007887141664541954018
-deactivate C_0015849414302614442372
+deactivate C_0009320894078409994325
 deactivate C_0007887141664541954018
 participant "InputMonitor" as C_0010617902402347083579
 C_0002900986228388971956 -> C_0010617902402347083579 : InputMonitor(QObject *)
@@ -180,6 +181,8 @@ deactivate C_0002900986228388971956
 deactivate C_0002900986228388971956
 
 deactivate C_0002639366545119460636
+skinparam SequenceArrowThickness 2
+skinparam RoundCorner 5
 
 'Generated with clang-uml, version 0.6.2
 'LLVM version clang version 20.1.7 (https://github.com/llvm/llvm-project.git 6146a88f60492b520a36f8f8f3231e15f3cc6082)

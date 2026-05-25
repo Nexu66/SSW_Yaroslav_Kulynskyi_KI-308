@@ -1,29 +1,78 @@
+##
+## clang-uml configuration for KursachSPZ
+## Project layout:
+##   src/
+##     main.cpp
+##     core/        — DatabaseManager (singleton)
+##     monitoring/  — AppMonitor, InputMonitor, UsbMonitor,
+##                    ClipboardMonitor, PowerMonitor
+##     ui/          — MainWindow, ActivityChart
+##
+
+# ── Build database ────────────────────────────────────────────────────────────
 compilation_database_dir: ./build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug
 
+# ── Output ────────────────────────────────────────────────────────────────────
 output_directory: ./docs/diagrams
 
 diagrams:
 
-  my_project_classes:
+  # ── 1. Full class diagram ─────────────────────────────────────────────────
+  all_classes:
     type: class
-    exclude:
+    title: "KursachSPZ — full class diagram"
+    include:
       paths:
-        - build
-    plantuml: {}
+        - src/core
+        - src/monitoring
+        - src/ui
+    exclude:
+      namespaces:
+        - Ui           # Qt Designer-generated namespace
+    plantuml:
+      after:
+        - "skinparam classBackgroundColor #FAFAFA"
+        - "skinparam classBorderColor #888888"
+        - "skinparam ArrowColor #555555"
+        - "skinparam linetype ortho"
 
+  # ── 2. Sequence diagram — application startup ─────────────────────────────
   main_sequence:
     type: sequence
+    title: "Application startup sequence"
     start_from:
       - function: "main(int,char **)"
-    exclude:
-      paths:
-        - build
-    plantuml: {}
-
-  my_components:
-    type: package
-    package_type: directory
     include:
       paths:
         - src
-    plantuml: {}
+    exclude:
+      paths:
+        - build
+    plantuml:
+      after:
+        - "skinparam SequenceArrowThickness 2"
+        - "skinparam RoundCorner 5"
+
+  # ── 3. Component diagram — classes grouped by directory ───────────────────
+  # Using type: class + generate_packages so each directory (core, monitoring,
+  # ui) renders as a named box containing its actual classes, with no empty
+  # stubs and without the redundant "src" parent wrapper.
+  components:
+    type: class
+    title: "KursachSPZ — component overview"
+    package_type: directory
+    generate_packages: true
+    include:
+      paths:
+        - src/core
+        - src/monitoring
+        - src/ui
+    exclude:
+      namespaces:
+        - Ui
+    plantuml:
+      after:
+        - "skinparam linetype ortho"
+        - "skinparam packageBackgroundColor #EEF4FF"
+        - "skinparam packageBorderColor #7A9CC0"
+        - "skinparam classBackgroundColor #FAFAFA"

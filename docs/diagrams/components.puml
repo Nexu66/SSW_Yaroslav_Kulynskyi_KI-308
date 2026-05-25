@@ -1,0 +1,57 @@
+@startuml
+title KursachSPZ — component overview
+
+hide members
+
+skinparam linetype ortho
+skinparam packageBackgroundColor #EEF4FF
+skinparam packageBorderColor #7A9CC0
+skinparam classBackgroundColor #FAFAFA
+
+package [src] {
+
+    package [monitoring] {
+
+        class "AppMonitor"
+        class "UsbMonitor"
+        class "PowerMonitor"
+        class "InputMonitor"
+        class "ClipboardMonitor"
+    }
+
+    package [core] {
+
+        class "DatabaseManager"
+    }
+
+    package [ui] {
+
+        class "MainWindow"
+        class "ActivityChart"
+    }
+}
+
+' ────────────────────────────────────────────────────────────────
+' MV-style architecture relations
+' ────────────────────────────────────────────────────────────────
+
+' UI communicates with the model/database
+MainWindow ..> DatabaseManager
+
+' UI controls monitoring components
+MainWindow ..> AppMonitor
+MainWindow ..> InputMonitor
+MainWindow ..> UsbMonitor
+MainWindow ..> ClipboardMonitor
+MainWindow ..> PowerMonitor
+
+' Monitoring layer writes data into model/database
+AppMonitor ..> DatabaseManager : logs app events
+InputMonitor ..> DatabaseManager : logs key events
+UsbMonitor ..> DatabaseManager : logs USB events
+ClipboardMonitor ..> DatabaseManager : logs clipboard events
+PowerMonitor ..> DatabaseManager : logs power events
+
+' UI updates visualization
+MainWindow ..> ActivityChart : updates chart
+@enduml
